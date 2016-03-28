@@ -1,0 +1,244 @@
+@font-face {
+    font-family: 'Ikaros';
+    src: url('../fonts/Ikaros-Regular.otf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font-family: 'Ikaros', sans-serif;
+    text-align: center;
+    box-sizing: border-box;
+    letter-spacing: 0.05em;
+    -webkit-margin-before: 0px;
+    -webkit-margin-after: 0px;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-before: 0px;
+    -webkit-padding-after: 0px;
+    -webkit-padding-start: 0px;
+    -webkit-padding-end: 0px;
+}
+
+body {
+	height: 100px;
+	background-color: #192c30;
+}
+
+.header-title,
+span {
+	color: #bdccd4;
+}
+
+img {
+	width: 100%;
+}
+
+.button {
+	width: 150px;
+	padding: 8px;
+	border-radius: 12px;
+	font-size: 20px;
+}
+
+
+/*iPhone portrait*/
+
+@media only screen and (min-width: 320px) {
+    body {
+        color: purple;
+    }
+	
+	.header-title {
+		margin-top: 50px;
+		margin-bottom: 15px;
+		font-size: 42px;
+		letter-spacing: 0.05em;
+	}
+	
+	/*********************
+    Main Introduction Styles
+	***********************/
+	.main-img{
+		height: 20rem;
+		background-image: url("../images/main.jpg");
+		background-repeat: no-repeat;
+		background-position: center top;
+		overflow: hidden;
+	}
+
+	.about,
+	.button {
+		margin-top: 20px;
+		color: #fff;
+		letter-spacing: 0.10em;
+	}
+
+	.start-btn {
+		background-color: #c30f1a;
+	}
+
+	.about {
+		padding-left: 10px;
+		padding-right: 10px;
+		font-size: 18px;
+		line-height: 30px;
+	}
+
+	/*********************
+    Game Content
+	***********************/
+
+	.question-box {
+		margin-top: 50px;
+		width: 100%;
+		height: 300px;
+		background-color: #fff;
+		border: 4px solid #bdccd4;
+	}
+
+	.question-header {
+		margin-top: 100px;
+		font-size: 24px;
+		color: #808080;
+	}
+	
+	.questions {
+		margin-top: 20px;
+		font-size: 18px;
+		color: #192c30;
+	}
+
+	.question-number {
+		margin-top: 30px;
+		margin-right: 10px;
+		padding-top: 4px;
+		width: 22px; 
+		height: 22px; 
+		color: #fff;
+		font-size: 14px;
+		background: #6a898c; 
+		display: inline-block;
+		-moz-border-radius: 50px; 
+		-webkit-border-radius: 50px; 
+		border-radius: 50px; 
+	}
+
+	.character-btn {
+		background-color: #6a898c;
+		margin-right: 5px;
+		margin-top: 50px;
+	}
+
+	.active {
+		background-color: #c30f1a;
+	}
+}
+
+
+/*iPhone landscape*/
+
+@media only screen and (min-width: 480px) {
+    body {
+        color: green;
+    }
+
+	 .question-box {
+    	width: 85%;
+    	margin-left: auto;
+    	margin-right: auto; 
+    	display: block;
+    	border: 6px solid #bdccd4;
+    	position: relative;
+    }
+	
+	.question-header {
+		margin-top: 80px;
+		font-size: 28px;
+	}
+
+	.questions{
+		font-size: 20px;
+	}
+
+
+	.grace-img {
+		height: 25rem;
+		width: 70%;
+		background-image: url("../images/grace-350px.png");
+		background-repeat: no-repeat;
+		position: absolute;
+		bottom: -10px;
+		left: -130px; /*decrease to move left*/ 
+	}
+
+	.frankie-img {
+		margin-right: 20px;
+		height: 25rem;
+		width: 50%;
+		background-image: url("../images/frankie-350px.png");
+		background-repeat: no-repeat;
+		position: absolute;
+		top: 360px; /*increase to move left*/
+		right: -70px; /*increase to move left*/
+	}
+
+}
+
+
+/*ipad potrait*/
+
+@media only screen and (min-width: 768px) {
+    body {
+        color: red;
+    }
+
+    .question-box {
+    	width: 70%;
+    }
+
+	.questions-header {
+		font-size: 32px;
+	}
+
+	.questions {
+		font-size: 22px;
+	}
+
+	.grace-img {
+		margin-left: 100px;
+		left: -100px;
+	}
+
+	.frankie-img {
+		margin-right: 20px;
+		right: -120px;
+
+	}
+}
+
+
+/*ipad lanscape / small laptop*/
+
+@media only screen and (min-width: 1024px) {
+    body {
+        color: blue;
+    }
+
+    .question-box {
+    	width: 50%;
+    }
+
+
+	.grace-img {
+		margin-left: 230px;
+	}
+	
+	.frankie-img {
+		margin-right: 100px;
+		right: -220px;
+
+	}
+}
