@@ -2,8 +2,6 @@
 
 $(document).ready(function() {
 
-  
-
   var beginQuiz = $('.quiz-wrapper')
   var feedbackHeader = $('.feedback-header')
 
@@ -24,7 +22,10 @@ beginQuiz.hide()
 $('.start-btn').click(function() {
 	$('.main-intro').hide()
 	beginQuiz.show()
+	// displays a question
 	generateQuestions()
+	// displays buttons for Grace and Frankie
+	characterButtons()
 })
 
 
@@ -49,6 +50,11 @@ function generateQuestions() {
 	    questionDiv.append(quiz.question);
 	}
 }
+
+// function to append Grace and Frankie option buttons
+function characterButtons() {
+	choicesDiv.append('<button id="grace-btn" class="options button">Grace</button><button id="frankie-btn" class="options button">Frankie</button>')
+	}
 
 })
 
