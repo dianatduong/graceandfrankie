@@ -8,15 +8,18 @@
 
 	<body> 
 
-		<header class="header-title">Who Said it?</header>
+		<header class="header-title">
+			<h1>Who Said it?</h1>
+		</header>
 		
+
 		<!-- Main Introduction -->
 <!-- 		<section class="main-intro">
 			<div class="main-img"></div>
 				<div class="about">
 					<p>Take the quiz to see if you know
 						<br>
-						<span><q>Who Said it</q></span> on Season One of Grace and Frankie.
+						<span id="title"><q>Who Said it</q></span> on Season One of Grace and Frankie.
 					</p>
 				</div>
 			<div>
@@ -24,34 +27,43 @@
 					Start Quiz
 				</button>
 			</div>
-		</section> -->
+		</section>4
+ -->
 
 		<!-- Game Content -->
-		<section class="game">
-			<div class="question-box">
-				<p class="question-header">Question 1:</p>
-					<p class="questions"><q>Your anger is frightening the sand.</q></p>
+		<section class="quiz">
+			<div class="quiz-box">
+
+				<h2 class="feedback-header">Question <span id="question-number">1:</span></h2>
+					<p class="question"><q>Your anger is frightening the sand.</q></p>	
+
+					<div class="option-btn">
+						<button id="grace-btn" class="options button">Grace</button>
+						<button id="frankie-btn" class=" options button">Frankie</button>
+					</div>
+
+					<div class="next">
 						
-							<button class="character-btn button">Grace</button>
-							<button class="character-btn button">Frankie</button>
-						
+					</div>
 			</div>
-			<div class="circles">
+
+
+			<div class="feedback-circles">
 				<ul>
-					<li class="question-number active">1</li>
-					<li class="question-number">2</li>
-					<li class="question-number">3</li>
-					<li class="question-number">4</li>
-					<li class="question-number">5</li>
+					<li class="progress-circles active"></li>
+					<li class="progress-circles"></li>
+					<li class="progress-circles"></li>
+					<li class="progress-circles"></li>
+					<li class="progress-circles"></li>
 				</ul>
 			</div>
-
+			
 		
-		<div class="characters">
-			<div class="grace-img"></div>
-			<div class="frankie-img"></div>
-		</div>
-
+		<!-- 	<div>
+				<div class="grace-img"></div>
+				<div class="frankie-img"></div>
+			</div>
+ -->
 
 		</section>
 		

@@ -28,7 +28,7 @@ body {
 }
 
 .header-title,
-span {
+span#title {
 	color: #bdccd4;
 }
 
@@ -51,7 +51,7 @@ img {
         color: purple;
     }
 	
-	.header-title {
+	h1 {
 		margin-top: 50px;
 		margin-bottom: 15px;
 		font-size: 42px;
@@ -91,7 +91,7 @@ img {
     Game Content
 	***********************/
 
-	.question-box {
+	.quiz-box {
 		margin-top: 20px;
 		width: 100%;
 		height: 300px;
@@ -99,26 +99,23 @@ img {
 		border: 4px solid #bdccd4;
 	}
 
-	.question-header {
+	.feedback-header {
 		margin-top: 60px;
 		font-size: 24px;
 		color: #808080;
 	}
 	
-	.questions {
+	.question {
 		margin-top: 20px;
 		font-size: 18px;
 		color: #192c30;
 	}
 
-	.question-number {
+	.progress-circles {
 		margin-top: 30px;
 		margin-right: 10px;
-		padding-top: 4px;
-		width: 22px; 
-		height: 22px; 
-		color: #fff;
-		font-size: 14px;
+		width: 18px; 
+		height: 18px; 
 		background: #6a898c; 
 		display: inline-block;
 		-moz-border-radius: 50px; 
@@ -126,7 +123,8 @@ img {
 		border-radius: 50px; 
 	}
 
-	.character-btn {
+	.option-btn .button,
+	#next-btn {
 		background-color: #6a898c;
 		margin-top: 50px;
 		margin-right: 10px;
@@ -145,7 +143,7 @@ img {
         color: green;
     }
 
-	 .question-box {
+	.quiz-box {
     	width: 85%;
     	margin-left: auto;
     	margin-right: auto; 
@@ -154,39 +152,34 @@ img {
     	position: relative;
     }
 	
-	.question-header {
+	.feedback-header {
 		margin-top: 60px;
 		font-size: 28px;
 	}
 
-	.questions{
+	.question {
 		font-size: 20px;
-	}
-
-	.character-btn {
-		margin-right: 10px;
-
 	}
 
 	.grace-img {
 		height: 25rem;
-		width: 70%;
+		width: 75%;
 		background-image: url("../images/grace-350px.png");
 		background-repeat: no-repeat;
 		position: absolute;
-		bottom: -10px;
-		left: -130px; /*decrease to move left*/ 
+		bottom: -20px;
+		left: -130px; 
 	}
 
 	.frankie-img {
 		margin-right: 20px;
 		height: 25rem;
-		width: 50%;
+		width: 55%;
 		background-image: url("../images/frankie-350px.png");
 		background-repeat: no-repeat;
 		position: absolute;
-		top: 360px; /*increase to move left*/
-		right: -70px; /*increase to move left*/
+		top: 360px; 
+		right: -70px; 
 	}
 
 }
@@ -199,15 +192,15 @@ img {
         color: red;
     }
 
-    .question-box {
+    .quiz-box {
     	width: 75%;
     }
 
-	.questions-header {
+	.feedback-header {
 		font-size: 32px;
 	}
 
-	.questions {
+	.question {
 		font-size: 22px;
 	}
 
@@ -219,7 +212,6 @@ img {
 	.frankie-img {
 		margin-right: 20px;
 		right: -120px;
-
 	}
 }
 
@@ -231,16 +223,16 @@ img {
         color: blue;
     }
 
-    .question-box {
-    	width: 60%;
+    .quiz-box {
+    	width: 55%;
     }
 
 	.grace-img {
-		margin-left: 230px;
+		margin-left: 200px;
 	}
 	
 	.frankie-img {
-		margin-right: 100px;
+		margin-right: 50px;
 		right: -220px;
 
 	}
