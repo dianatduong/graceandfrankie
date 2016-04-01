@@ -20,7 +20,7 @@ $(document).ready(function() {
 	    options: ["Grace", "Frankie"],
 	    correctAnswer: "Frankie"
 	}, {
-	    question: "\"If anyone is going to sit on Ryan Gosling's face, it's gonna be me!\"",
+	    question: "\"If anyone is going to sit on Ryan Gosling's<br> face, it's gonna be me!\"",
 	    options: ["Grace", "Frankie"],
 	    correctAnswer: "Grace"
 	}, {
