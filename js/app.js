@@ -8,12 +8,11 @@ $(document).ready(function() {
   var questionDiv = $('.question')
   var choicesDiv = $('.choices')
 
-  var count = $('span#question-number')
   var questionNumber = 1;
   var indicator = $('.indicator')
 
   var nextDiv = $('.next')
-  var nextButton = $('#next-btn')
+
 
 
   var q = [{
@@ -39,8 +38,6 @@ $(document).ready(function() {
 	  }]
 
 
-
-
 // when user clicks start button, the intro hides and quiz displays
 $('.start-btn').click(function() {
 	console.log("*start quiz*")
@@ -49,15 +46,63 @@ $('.start-btn').click(function() {
 	generateQuestion()
 })
 
-	var questionLength = q.length;
-	var questionPoint = 0;
+
+
+	var questionIndex = 0;
+
 function generateQuestion() {
-	questionDiv.append(q[questionPoint].question)
-	characterButtons(q[questionPoint].correctAnswer)
-	questionPoint++;
+	questionDiv.append(q[questionIndex].question)
+	characterButtons(q[questionIndex].correctAnswer)
+	questionIndex++;
 	indicators()
-	// $('.feedback-circles').find('li:first').css("background-color", "red");
-	// // $('li').first().css('background-color', '#c30f1a')
+}
+
+// function to append Grace and Frankie option buttons
+function characterButtons(answer) {
+	if (answer == "Frankie") {
+		choicesDiv.append('<button id="incorrect-btn" class="options button">Grace</button><button id="correct-btn" class="options button">Frankie</button>')
+		$('#correct-btn').click(answerTrue) 
+		$('#incorrect-btn').click(answerFalse) 
+	} 
+	else {
+		choicesDiv.append('<button id="correct-btn" class="options button">Grace</button><button id="incorrect-btn" class="options button">Frankie</button>')
+		$('#correct-btn').click(answerTrue) 
+		$('#incorrect-btn').click(answerFalse)
+	}
+}
+
+var correctAnswers = 0;
+
+// when user answers correctly
+function answerTrue() {
+	correctAnswers++;
+	feedbackHeader.text("Yay!")
+	questionDiv.text("You are correct!")
+	choicesDiv.hide()
+	nextDiv.append('<button id="next-btn" class="button">Next</button>')
+	$('.active').append('<i class="fa fa-check"></i>')
+	$('#next-btn').click(next)
+	if (questionNumber == 5) {
+		nextDiv.empty()
+ 		nextDiv.append('<button id="results-btn" class="button">See Results</button>')
+ 		results()
+ 	}
+}
+
+
+// when user answers incorrectly
+function answerFalse() {
+	feedbackHeader.text("Sorry.")
+	questionDiv.text("That is not the correct answer.")
+	choicesDiv.hide()
+	nextDiv.append('<button id="next-btn" class="button">Next</button>')
+	$('.active').append('<i class="fa fa-times"></i>')
+	$('#next-btn').click(next) 	
+	if (questionNumber == 5) {
+		nextDiv.empty()
+ 		nextDiv.append('<button id="results-btn" class="button">See Results</button>')
+ 		results()
+ 	}
 }
 
 function next() {
@@ -69,78 +114,12 @@ function next() {
 	choicesDiv.empty()
 	nextDiv.empty()
 	choicesDiv.show()
-	
  	generateQuestion()
 }
-
-// function to append Grace and Frankie option buttons
-function characterButtons(answer) {
-	if (answer == "Frankie") {
-		choicesDiv.append('<button id="incorrect-btn" class="options button">Grace</button><button id="correct-btn" class="options button">Frankie</button>')
-
-		$('#correct-btn').click(function() {
-			console.log("correct")
-			answerTrue()
-			return true;
-		})
-
-		$('#incorrect-btn').click(function() {
-			console.log("incorrect")
-			answerFalse()
-			return false;
-		})
-	} 
-	else {
-		choicesDiv.append('<button id="correct-btn" class="options button">Grace</button><button id="incorrect-btn" class="options button">Frankie</button>')
-
-		$('#correct-btn').click(function() {
-			console.log("correct")
-			answerTrue()
-			return true;
-		})
-
-		$('#incorrect-btn').click(function() {
-			console.log("incorrect")
-			answerFalse()
-			return false;
-		})
-	}
-}
-
-// when user answers correctly
-function answerTrue() {
-	feedbackHeader.text("Yay!")
-	questionDiv.text("You are correct!")
-	choicesDiv.hide()
-	nextDiv.append('<button id="next-btn" class="button">Next</button>')
-	$('.active').append('<i class="fa fa-check"></i>')
-	
-
-	$('#next-btn').click(function()  {
-		console.log("next button clicked")
-		next()
-	})
-}
-
-// when user answers incorrectly
-function answerFalse() {
-	feedbackHeader.text("Sorry.")
-	questionDiv.text("That is not the correct answer.")
-	choicesDiv.hide()
-	nextDiv.append('<button id="next-btn" class="button">Next</button>')
-	$('.active').append('<i class="fa fa-times"></i>')
-	
-	$('#next-btn').click(function() {
-		console.log("next button clicked")
-		next()
-	})
-}
-
 
 function indicators() {
 	if (questionNumber == 1) {
 		$('#indicator-1').addClass('active')
-		checks()
 	}
 	else if (questionNumber == 2 ) {
 		$('#indicator-1').removeClass('active')
@@ -157,7 +136,7 @@ function indicators() {
 		$('#indicator-3').removeClass('active')
 		$('#indicator-4').addClass('active')
 	}
-	else {
+	else if (questionNumber == 5) {
 		$('#indicator-1').removeClass('active')
 		$('#indicator-2').removeClass('active')
 		$('#indicator-3').removeClass('active')
@@ -166,6 +145,14 @@ function indicators() {
 	}
 }
 
+
+function results() {
+	$('#results-btn').click(function(){
+		questionDiv.empty()
+		feedbackHeader.text("You answered " + correctAnswers + " out of 5 correctly!")
+		$('button#results-btn').remove()
+	})
+}
 
 
 
