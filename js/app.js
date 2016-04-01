@@ -9,52 +9,165 @@ $(document).ready(function() {
   var choicesDiv = $('.choices')
 
   var count = $('span#question-number')
-  var questionNumber = 1
+  var questionNumber = 1;
+  var indicator = $('.indicator')
 
   var nextDiv = $('.next')
   var nextButton = $('#next-btn')
 
 
-// hides the quiz to display intro
-beginQuiz.hide()
+  var q = [{
+	    question: "\"Your anger is frightening the sand.\"",
+	    options: ["Grace", "Frankie"],
+	    correctAnswer: "Frankie"
+	}, {
+	    question: "\"If anyone is going to sit on Ryan Gosling's face, it's gonna be me!\"",
+	    options: ["Grace", "Frankie"],
+	    correctAnswer: "Grace"
+	}, {
+	    question: "\"That's a lubricant?! I've been putting that on my toast.\"",
+	    options: ["Grace", "Frankie"],
+	    correctAnswer: "Grace"
+	}, {
+	    question: "\"Take your scissors away from my rug\"",
+	    options: ["Grace", "Frankie"],
+	    correctAnswer: "Frankie"
+	}, {
+	    question: "\"Oh! That is the worst iced tea ever! What is in there, ass?!\"",
+	    options: ["Grace", "Frankie"],
+	    correctAnswer: "Grace"
+	  }]
+
+
+
 
 // when user clicks start button, the intro hides and quiz displays
 $('.start-btn').click(function() {
+	console.log("*start quiz*")
 	$('.main-intro').hide()
 	beginQuiz.show()
-	// displays a question
-	generateQuestions()
-	// displays buttons for Grace and Frankie
-	characterButtons()
+	generateQuestion()
 })
 
+	var questionLength = q.length;
+	var questionPoint = 0;
+function generateQuestion() {
+	questionDiv.append(q[questionPoint].question)
+	characterButtons(q[questionPoint].correctAnswer)
+	questionPoint++;
+	indicators()
+	// $('.feedback-circles').find('li:first').css("background-color", "red");
+	// // $('li').first().css('background-color', '#c30f1a')
+}
 
-
-// function to generate questions
-function generateQuestions() {
-	//array of questions
-	var q = [{
-	    question: "\"Your anger is frightening the sand.\""
-	}, {
-	    question: "\"If anyone is going to sit on Ryan Gosling's face, it's gonna be me!\""
-	}, {
-	    question: "\"That's a lubricant?! I've been putting that on my toast.\""
-	}, {
-	    question: "\"Take your scissors away from my rug\""
-	}, {
-	    question: "\"Oh! That is the worst iced tea ever! What is in there, ass?!\""
-	  }]
-	// loop through questions
-	for (var i = 0; i < 1; i++) {
-	  var quiz = q[i];
-	    questionDiv.append(quiz.question);
-	}
+function next() {
+	console.log("next button clicked")
+	questionNumber++;
+	feedbackHeader.empty()
+	feedbackHeader.append('Question <span id="question-number">'+ questionNumber +':</span')
+	questionDiv.text("")
+	choicesDiv.empty()
+	nextDiv.empty()
+	choicesDiv.show()
+	
+ 	generateQuestion()
 }
 
 // function to append Grace and Frankie option buttons
-function characterButtons() {
-	choicesDiv.append('<button id="grace-btn" class="options button">Grace</button><button id="frankie-btn" class="options button">Frankie</button>')
+function characterButtons(answer) {
+	if (answer == "Frankie") {
+		choicesDiv.append('<button id="incorrect-btn" class="options button">Grace</button><button id="correct-btn" class="options button">Frankie</button>')
+
+		$('#correct-btn').click(function() {
+			console.log("correct")
+			answerTrue()
+			return true;
+		})
+
+		$('#incorrect-btn').click(function() {
+			console.log("incorrect")
+			answerFalse()
+			return false;
+		})
+	} 
+	else {
+		choicesDiv.append('<button id="correct-btn" class="options button">Grace</button><button id="incorrect-btn" class="options button">Frankie</button>')
+
+		$('#correct-btn').click(function() {
+			console.log("correct")
+			answerTrue()
+			return true;
+		})
+
+		$('#incorrect-btn').click(function() {
+			console.log("incorrect")
+			answerFalse()
+			return false;
+		})
 	}
+}
+
+// when user answers correctly
+function answerTrue() {
+	feedbackHeader.text("Yay!")
+	questionDiv.text("You are correct!")
+	choicesDiv.hide()
+	nextDiv.append('<button id="next-btn" class="button">Next</button>')
+	$('.active').append('<i class="fa fa-check"></i>')
+	
+
+	$('#next-btn').click(function()  {
+		console.log("next button clicked")
+		next()
+	})
+}
+
+// when user answers incorrectly
+function answerFalse() {
+	feedbackHeader.text("Sorry.")
+	questionDiv.text("That is not the correct answer.")
+	choicesDiv.hide()
+	nextDiv.append('<button id="next-btn" class="button">Next</button>')
+	$('.active').append('<i class="fa fa-times"></i>')
+	
+	$('#next-btn').click(function() {
+		console.log("next button clicked")
+		next()
+	})
+}
+
+
+function indicators() {
+	if (questionNumber == 1) {
+		$('#indicator-1').addClass('active')
+		checks()
+	}
+	else if (questionNumber == 2 ) {
+		$('#indicator-1').removeClass('active')
+		$('#indicator-2').addClass('active')
+	}
+	else if (questionNumber == 3 ) {
+		$('#indicator-1').removeClass('active')
+		$('#indicator-2').removeClass('active')
+		$('#indicator-3').addClass('active')
+	}
+	else if (questionNumber == 4 ) {
+		$('#indicator-1').removeClass('active')
+		$('#indicator-2').removeClass('active')
+		$('#indicator-3').removeClass('active')
+		$('#indicator-4').addClass('active')
+	}
+	else {
+		$('#indicator-1').removeClass('active')
+		$('#indicator-2').removeClass('active')
+		$('#indicator-3').removeClass('active')
+		$('#indicator-4').removeClass('active')
+		$('#indicator-5').addClass('active')
+	}
+}
+
+
+
 
 })
 
