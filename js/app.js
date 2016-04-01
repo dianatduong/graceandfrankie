@@ -38,15 +38,17 @@ $(document).ready(function() {
 	  }]
 
 
+startQuiz()
+
 // when user clicks start button, the intro hides and quiz displays
-$('.start-btn').click(function() {
-	console.log("*start quiz*")
-	$('.main-intro').hide()
-	beginQuiz.show()
-	generateQuestion()
-})
-
-
+function startQuiz() {
+	$('.start-btn').click(function() {
+		console.log("*start quiz*")
+		$('.main-intro').hide()
+		beginQuiz.show()
+		generateQuestion()
+	})
+}
 
 	var questionIndex = 0;
 
@@ -60,18 +62,18 @@ function generateQuestion() {
 // function to append Grace and Frankie option buttons
 function characterButtons(answer) {
 	if (answer == "Frankie") {
-		choicesDiv.append('<button id="incorrect-btn" class="options button">Grace</button><button id="correct-btn" class="options button">Frankie</button>')
+		choicesDiv.append('<button id="incorrect-btn" class="button">Grace</button><button id="correct-btn" class="button">Frankie</button>')
 		$('#correct-btn').click(answerTrue) 
 		$('#incorrect-btn').click(answerFalse) 
 	} 
 	else {
-		choicesDiv.append('<button id="correct-btn" class="options button">Grace</button><button id="incorrect-btn" class="options button">Frankie</button>')
+		choicesDiv.append('<button id="correct-btn" class="button">Grace</button><button id="incorrect-btn" class="button">Frankie</button>')
 		$('#correct-btn').click(answerTrue) 
 		$('#incorrect-btn').click(answerFalse)
 	}
 }
 
-var correctAnswers = 0;
+	var correctAnswers = 0;
 
 // when user answers correctly
 function answerTrue() {
@@ -81,12 +83,8 @@ function answerTrue() {
 	choicesDiv.hide()
 	nextDiv.append('<button id="next-btn" class="button">Next</button>')
 	$('.active').append('<i class="fa fa-check"></i>')
-	$('#next-btn').click(next)
-	if (questionNumber == 5) {
-		nextDiv.empty()
- 		nextDiv.append('<button id="results-btn" class="button">See Results</button>')
- 		results()
- 	}
+	$('#next-btn').click(next)	
+	seeResults()
 }
 
 
@@ -97,12 +95,8 @@ function answerFalse() {
 	choicesDiv.hide()
 	nextDiv.append('<button id="next-btn" class="button">Next</button>')
 	$('.active').append('<i class="fa fa-times"></i>')
-	$('#next-btn').click(next) 	
-	if (questionNumber == 5) {
-		nextDiv.empty()
- 		nextDiv.append('<button id="results-btn" class="button">See Results</button>')
- 		results()
- 	}
+	$('#next-btn').click(next) 
+	seeResults()	
 }
 
 function next() {
@@ -115,6 +109,7 @@ function next() {
 	nextDiv.empty()
 	choicesDiv.show()
  	generateQuestion()
+
 }
 
 function indicators() {
@@ -143,22 +138,31 @@ function indicators() {
 		$('#indicator-4').removeClass('active')
 		$('#indicator-5').addClass('active')
 	}
+}	
+
+function seeResults() {
+	if (questionNumber == 5) {
+		nextDiv.empty()
+		nextDiv.append('<button id="results-btn" class="button">See Results</button>')
+		total()
+ 	}
 }
 
-
-function results() {
-	$('#results-btn').click(function(){
-		questionDiv.empty()
-		feedbackHeader.text("You answered " + correctAnswers + " out of 5 correctly!")
-		$('button#results-btn').remove()
+function total() {
+	$('#results-btn').click(function() {
+		$('#indicator-5').removeClass('active')
+		feedbackHeader.text("Congrats!")
+		questionDiv.text("You answered " + correctAnswers + " out of 5 correctly!")
+		nextDiv.empty()
+		nextDiv.append('<button class="start-btn button">Start Over</button>')
 	})
 }
-
 
 
 })
 
 
+	
 
 
 	
