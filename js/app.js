@@ -40,6 +40,8 @@ $(document).ready(function() {
 
 startQuiz()
 
+
+
 // when user clicks start button, the intro hides and quiz displays
 function startQuiz() {
 	$('.start-btn').click(function() {
@@ -151,13 +153,18 @@ function seeResults() {
 function total() {
 	$('#results-btn').click(function() {
 		$('#indicator-5').removeClass('active')
-		feedbackHeader.text("Congrats!")
-		questionDiv.text("You answered " + correctAnswers + " out of 5 correctly!")
 		nextDiv.empty()
 		nextDiv.append('<button class="start-btn button">Start Over</button>')
+		if (correctAnswers >= 3) {
+			feedbackHeader.text("Congratulations!")
+			questionDiv.text("You answered " + correctAnswers + " out of 5 correctly!")
+		}
+		else {
+			feedbackHeader.text("Ouch!")
+			questionDiv.text("You answered " + correctAnswers + " out of 5 correctly!")
+		}
 	})
 }
-
 
 })
 
