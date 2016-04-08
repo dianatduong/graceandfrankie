@@ -38,19 +38,21 @@ $(document).ready(function() {
 	  }]
 
 
-startQuiz()
-
 
 
 // when user clicks start button, the intro hides and quiz displays
-function startQuiz() {
+
 	$('.start-btn').click(function() {
 		console.log("*start quiz*")
 		$('.main-intro').hide()
 		beginQuiz.show()
 		generateQuestion()
 	})
-}
+
+
+	$('#reset').click(function() {
+		console.log("reset")
+	})
 
 	var questionIndex = 0;
 
@@ -154,7 +156,7 @@ function total() {
 	$('#results-btn').click(function() {
 		$('#indicator-5').removeClass('active')
 		nextDiv.empty()
-		nextDiv.append('<button class="start-btn button">Start Over</button>')
+		nextDiv.append('<button id="reset" class="button">Start Over</button>')
 		if (correctAnswers >= 3) {
 			feedbackHeader.text("Congratulations!")
 			questionDiv.text("You answered " + correctAnswers + " out of 5 correctly!")
@@ -165,6 +167,8 @@ function total() {
 		}
 	})
 }
+
+
 
 })
 
