@@ -27,7 +27,7 @@ body {
 }
 
 .header-title,
-span#title {
+#title {
 	color: #bdccd4;
 }
 
