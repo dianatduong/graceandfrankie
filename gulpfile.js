@@ -47,7 +47,7 @@ gulp.task('html', function() {
 // JavaScript build task, removes whitespace and concatenates all files
 gulp.task('scripts', function() {
 //new task created called scripts
-  return browserify('site/js/main.js')
+  return browserify('site/js/app.js')
   // runs browserify on js files 
     .bundle()
     //concatenates files in correct order
@@ -74,11 +74,11 @@ gulp.task('styles', function() {
 // Image optimization task
 gulp.task('images', function() {
 //new task created  called images
-  return gulp.src('site/img/*')
+  return gulp.src('site/images/*')
   //.src method lads all of the files in site/img
     .pipe(imagemin())
     //the images are piped into the imagemin plugin to be optimized
-    .pipe(gulp.dest('build/img'));
+    .pipe(gulp.dest('build/images'));
     //results are piped into gulp.dest which places them into the destination directory, build/img
 });
 
