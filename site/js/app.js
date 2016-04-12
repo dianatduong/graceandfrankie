@@ -49,9 +49,16 @@ $(document).ready(function() {
 		generateQuestion()
 	})
 
-
-	$('#reset').click(function() {
+	$('.reset').click(function() {
 		console.log("reset")
+		correctAnswers = 0;
+		feedbackHeader.empty()
+		feedbackHeader.append('Question <span id="question-number">'+ questionNumber +':</span')
+		questionDiv.text("")
+		choicesDiv.empty()
+		nextDiv.empty()
+		choicesDiv.show()
+		generateQuestion()
 	})
 
 	var questionIndex = 0;
@@ -156,7 +163,7 @@ function total() {
 	$('#results-btn').click(function() {
 		$('#indicator-5').removeClass('active')
 		nextDiv.empty()
-		nextDiv.append('<button id="reset" class="button">Start Over</button>')
+		nextDiv.append('<button class="reset button">Start Over</button>')
 		if (correctAnswers >= 3) {
 			feedbackHeader.text("Congratulations!")
 			questionDiv.text("You answered " + correctAnswers + " out of 5 correctly!")

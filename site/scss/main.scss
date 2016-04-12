@@ -1,1 +1,258 @@
-@import partials/buttons.scss
+$brand-color: #192c30;
+$lightGray: #bdccd4;
+$gray: #808080;
+$circles-color: #6a898c;
+$accent-color: #c30f1a;
+$white: #fff;
+
+$sans-serif-font: 'Ikaros', sans-serif;
+    /*src: url('../fonts/Ikaros-Regular.otf');*/
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font-family: $sans-serif-font;
+    text-align: center;
+    box-sizing: border-box;
+    letter-spacing: 0.05em;
+    -webkit-margin-before: 0px;
+    -webkit-margin-after: 0px;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-before: 0px;
+    -webkit-padding-after: 0px;
+    -webkit-padding-start: 0px;
+    -webkit-padding-end: 0px;
+}
+
+/*********************
+General Styles
+***********************/
+body {
+	background-color: $brand-color;
+}
+
+img {
+	width: 100%;
+}
+
+.button {
+    width: 150px;
+    padding: 8px;
+    border-radius: 12px;
+    font-size: 20px;
+}
+
+.quiz-wrapper {
+	display: none;
+}
+
+.fa {
+	padding-top: 2px;
+	color: #fff;
+}
+
+
+/*iPhone portrait*/
+@media only screen and (min-width: 320px) {
+
+	/*********************
+	Header Styles
+	***********************/
+
+	header .header-title {
+		margin-top: 50px;
+		margin-bottom: 15px;
+		color: $lightGray;
+		font-size: 42px;
+		letter-spacing: 0.08em;
+	}
+	  
+	/*********************
+	Main Introduction Styles
+	***********************/
+
+	section.main-intro {
+		.main-img {
+			overflow: hidden;
+			height: 20rem;
+			background-image: url("../images/main.jpg");
+			background-repeat: no-repeat;
+			background-position: center top;
+		}
+		.about {
+			padding-left: 10px;
+			padding-right: 10px;
+			font-size: 18px;
+			line-height: 30px;
+		}
+		#title {
+			color: $lightGray;
+		}
+	} 
+		
+
+	.about,
+	.button {
+		margin-top: 20px;
+		color: $white;
+		letter-spacing: 0.10em;
+	}
+	  
+	.start-btn,
+	#reset {
+		margin-top: 30px;
+		background-color: $accent-color;
+	}
+	  
+	/*********************
+	Game Content Styles
+	***********************/
+
+	.quiz-wrapper {
+		display: none;
+		.quiz-contents {
+			margin-top: 20px;
+			width: 100%;
+			height: 300px;
+			background-color: $white;
+			border: 4px solid $lightGray;
+		}
+		.feedback-header {
+			margin-top: 60px;
+			font-size: 24px;
+			color: $gray;
+		}
+		.question {
+			margin-top: 20px;
+			font-size: 18px;
+			color: $brand-color;
+		}
+	}
+
+	.circles {
+		width: 22px; 
+		height: 22px;
+		margin-top: 30px;
+		margin-right: 10px;
+		background-color: #6a898c; 
+		display: inline-block;
+		border-radius: 50px; 
+		-moz-border-radius: 50px; 
+		-webkit-border-radius: 50px; 
+	}
+
+	.choices .button,
+	#next-btn,
+	#results-btn {
+		background-color: #6a898c;
+		margin-top: 50px;
+		margin-right: 10px;
+	}
+
+	.active {
+		background-color: #c30f1a;
+	}
+}
+
+
+/*iPhone landscape*/
+@media only screen and (min-width: 480px) {
+
+	/*********************
+	Game Content Styles
+	***********************/
+
+	.quiz-wrapper {
+		.quiz-contents {
+			width: 85%;
+			margin-left: auto;
+			margin-right: auto; 
+			display: block;
+			border: 6px solid $lightGray;
+			position: relative;
+		}
+		.feedback-header {
+			margin-top: 60px;
+			font-size: 28px;
+		}
+		.question {
+			font-size: 20px;
+		}
+	}
+
+	/*extend with placeholder selectors*/
+	%img-styles {
+		height: 25rem;
+		background-repeat: no-repeat;
+		position: absolute;
+	}
+	.grace-img {
+		@extend %img-styles;
+		width: 75%;
+		background-image: url("../images/grace-350px.png");
+		bottom: -20px;
+		left: -130px; 
+	}
+	.frankie-img {
+		@extend %img-styles;
+		margin-right: 20px;
+		width: 55%;
+		background-image: url("../images/frankie-350px.png");
+		top: 360px; 
+		right: -70px; 
+	}
+}
+
+
+/*ipad potrait*/
+
+@media only screen and (min-width: 768px) {
+   
+    .about {
+    	font-size: 20px;
+    }
+
+    .quiz-contents {
+    	width: 75%;
+    }
+
+	.feedback-header {
+		font-size: 32px;
+	}
+
+	.question {
+		font-size: 22px;
+	}
+
+	.grace-img {
+		margin-left: 100px;
+		left: -100px;
+	}
+
+	.frankie-img {
+		margin-right: 20px;
+		right: -120px;
+	}
+}
+
+
+/*ipad lanscape / small laptop*/
+
+@media only screen and (min-width: 1024px) {
+
+    .quiz-contents {
+    	width: 55%;
+    }
+
+	.grace-img {
+		margin-left: 200px;
+	}
+	
+	.frankie-img {
+		margin-right: 50px;
+		right: -220px;
+	}
+}

@@ -8,13 +8,17 @@
 	color: #fff;
 }
 
-
-/*********************
-Main Introduction Styles
-***********************/
-
 .start-btn,
 #reset {
 	margin-top: 30px;
 	background-color: #c30f1a;
+}
+
+
+.choices .button,
+#next-btn,
+#results-btn {
+	background-color: #6a898c;
+	margin-top: 50px;
+	margin-right: 10px;
 }
