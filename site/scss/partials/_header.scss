@@ -1,0 +1,16 @@
+/*iPhone portrait*/
+@media only screen and (min-width: 320px) {
+		/*********************
+	Header Styles
+	***********************/
+
+	header .header-title {
+		font-family: 'Ikaros';
+		margin-top: 50px;
+		margin-bottom: 15px;
+		color: $lightGray;
+		font-size: 42px;
+		letter-spacing: 0.08em;
+	}
+
+}

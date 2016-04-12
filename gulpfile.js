@@ -29,7 +29,7 @@ gulp.task('sass', function() {
   //.src method loads all of the scss files
     .pipe(sass())
     //then pipes files into the sass() plugin
-    .pipe(gulp.dest('site/css'));
+    .pipe(gulp.dest('build/css'));
     //the compiled results are piped into gulp.dest method which creates files in the destination folder (site.css)
 });
 

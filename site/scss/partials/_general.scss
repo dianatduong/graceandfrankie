@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font-family: 'Ikaros', sans-serif;
+    text-align: center;
+    box-sizing: border-box;
+    letter-spacing: 0.05em;
+    -webkit-margin-before: 0px;
+    -webkit-margin-after: 0px;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-before: 0px;
+    -webkit-padding-after: 0px;
+    -webkit-padding-start: 0px;
+    -webkit-padding-end: 0px;
+}
+
+/*********************
+General Styles
+***********************/
+body {
+	background-color: $brand-color;
+}
+
+img {
+	width: 100%;
+}
+
+.button {
+    width: 150px;
+    padding: 8px;
+    border-radius: 12px;
+    font-size: 20px;
+}
+
+.quiz-wrapper {
+	display: none;
+}
+
+.fa {
+	padding-top: 2px;
+	color: #fff;
+}
+
+
+/*iPhone portrait*/
+@media only screen and (min-width: 320px) {
+
+    /*********************
+    Main Introduction Styles
+    ***********************/
+
+    section.main-intro {
+        .main-img {
+            overflow: hidden;
+            height: 20rem;
+            background-image: url("../images/main.jpg");
+            background-repeat: no-repeat;
+            background-position: center top;
+        }
+        .about {
+            padding-left: 10px;
+            padding-right: 10px;
+            font-size: 18px;
+            line-height: 30px;
+        }
+        #title {
+            color: $lightGray;
+        }
+    } 
+        
+
+    .about,
+    .button {
+        margin-top: 20px;
+        color: $white;
+        letter-spacing: 0.10em;
+    }
+      
+    .start-btn,
+    #reset {
+        margin-top: 30px;
+        background-color: $accent-color;
+    }
+
+}
+      
