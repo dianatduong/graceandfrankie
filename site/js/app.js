@@ -35,10 +35,6 @@ $(document).ready(function() {
 	    question: "\"Oh! That is the worst iced tea ever! What is in there, ass?!\"",
 	    options: ["Grace", "Frankie"],
 	    correctAnswer: "Grace"
-	    },{
-	    question: "\"Oh! That is the worst iced tea ever! What is in there, ass?!\"",
-	    options: ["Grace", "Frankie"],
-	    correctAnswer: "Grace"
 	  }]
 
 
