@@ -9,7 +9,7 @@ $(document).ready(function() {
   var choicesDiv = $('.choices')
 
   var questionNumber = 1;
-  var indicator = $('.indicator')
+  var circles = $('.circles')
 
   var nextDiv = $('.next')
 
@@ -35,27 +35,31 @@ $(document).ready(function() {
 	    question: "\"Oh! That is the worst iced tea ever! What is in there, ass?!\"",
 	    options: ["Grace", "Frankie"],
 	    correctAnswer: "Grace"
+	    },{
+	    question: "\"Oh! That is the worst iced tea ever! What is in there, ass?!\"",
+	    options: ["Grace", "Frankie"],
+	    correctAnswer: "Grace"
 	  }]
 
 
 
 
-// when user clicks start button, the intro hides and quiz displays
-
-	$('.start-btn').click(function() {
-		console.log("*start quiz*")
-		$('.main-intro').hide()
-		beginQuiz.show()
-		generateQuestion()
-	})
+// when user clicks start button, the intro hides, quiz displays, question get generated
+$('.start-btn').click(function() {
+	console.log("*start quiz*")
+	$('.main-intro').hide()
+	beginQuiz.show()
+	generateQuestion()
+})
 
 	var questionIndex = 0;
-
 function generateQuestion() {
+	console.log("question generated")
+	questionNumber == 1;
 	questionDiv.append(q[questionIndex].question)
 	characterButtons(q[questionIndex].correctAnswer)
 	questionIndex++;
-	indicators()
+	indicators("")
 }
 
 // function to append Grace and Frankie option buttons
@@ -149,23 +153,6 @@ function seeResults() {
 
 function total() {
 	$('#results-btn').click(function() {
-		$('#indicator-5').removeClass('active')
-		nextDiv.empty()
-		nextDiv.append('<button class="reset button">Start Over</button>')
-
-			$('.reset').click(function() {
-		console.log("reset")
-		correctAnswers = 0;
-		feedbackHeader.empty()
-		feedbackHeader.append('Question <span id="question-number">'+ questionNumber +':</span')
-		questionDiv.text("")
-		choicesDiv.empty()
-		nextDiv.empty()
-		choicesDiv.show()
-		generateQuestion()
-	})
-
-			
 		if (correctAnswers >= 3) {
 			feedbackHeader.text("Congratulations!")
 			questionDiv.text("You answered " + correctAnswers + " out of 5 correctly!")
@@ -174,10 +161,33 @@ function total() {
 			feedbackHeader.text("Ouch!")
 			questionDiv.text("You answered " + correctAnswers + " out of 5 correctly!")
 		}
+		// removes active class from last circle indicator
+		$('#indicator-5').removeClass('active')
+		// removes the See Results Button
+		nextDiv.empty()
+		// displays the Start Over button
+		nextDiv.append('<button class="reset button">Start Over</button>')
+
+		reset()
+		
 	})
 }
 
-
+function reset() {
+		$('.reset').click(function() {
+			console.log("reset")
+			//clears feedback Header (Ouch!)
+			feedbackHeader.empty()
+			// clears feedback displaying # of correct
+			questionDiv.empty()
+			// removes Start Over button
+			nextDiv.empty()
+			// clears indicators from circles
+			circles.empty()
+			$('.main-intro').show()
+			beginQuiz.hide()
+		})
+	}
 
 })
 

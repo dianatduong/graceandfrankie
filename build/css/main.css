@@ -1,8 +1,10 @@
+/*
 @font-face {
-  font-family: 'Ikaros', sans-serif;
-  src: url("../../../fonts/Ikaros-Regular.otf");
-  src: url("../../fonts/Ikaros-Regular.otf") format("embedded-opentype"); }
-
+    font-family: 'Ikaros', sans-serif;
+    src: url('../../../fonts/Ikaros-Regular.otf');
+    src: url('../../fonts/Ikaros-Regular.otf') format('embedded-opentype');
+}
+*/
 * {
   margin: 0;
   padding: 0;
@@ -67,7 +69,7 @@ img {
     color: #fff;
     letter-spacing: 0.10em; }
   .start-btn,
-  #reset {
+  .reset {
     margin-top: 30px;
     background-color: #c30f1a; } }
 
@@ -142,21 +144,26 @@ img {
   .quiz-wrapper .question {
     font-size: 20px; }
   /*extend with placeholder selectors*/
-  .grace-img, .frankie-img {
-    height: 25rem;
-    background-repeat: no-repeat;
-    position: absolute; }
-  .grace-img {
-    width: 75%;
-    background-image: url("../images/grace-350px.png");
-    bottom: -20px;
-    left: -130px; }
-  .frankie-img {
-    margin-right: 20px;
-    width: 55%;
-    background-image: url("../images/frankie-350px.png");
-    top: 360px;
-    right: -70px; } }
+  /*	%img-styles {
+		height: 25rem;
+		background-repeat: no-repeat;
+		position: absolute;
+	}
+	.grace-img {
+		@extend %img-styles;
+		width: 75%;
+		background-image: url("../images/grace-350px.png");
+		bottom: -20px;
+		left: -130px; 
+	}
+	.frankie-img {
+		@extend %img-styles;
+		margin-right: 20px;
+		width: 55%;
+		background-image: url("../images/frankie-350px.png");
+		top: 360px; 
+		right: -70px; 
+	}*/ }
 
 /*ipad potrait*/
 @media only screen and (min-width: 768px) {
@@ -168,19 +175,25 @@ img {
     font-size: 32px; }
   .question {
     font-size: 22px; }
-  .grace-img {
-    margin-left: 100px;
-    left: -100px; }
-  .frankie-img {
-    margin-right: 20px;
-    right: -120px; } }
+  /*	.grace-img {
+		margin-left: 100px;
+		left: -100px;
+	}
+
+	.frankie-img {
+		margin-right: 20px;
+		right: -120px;
+	}*/ }
 
 /*ipad lanscape / small laptop*/
 @media only screen and (min-width: 1024px) {
   .quiz-contents {
     width: 55%; }
-  .grace-img {
-    margin-left: 200px; }
-  .frankie-img {
-    margin-right: 50px;
-    right: -220px; } }
+  /*	.grace-img {
+		margin-left: 200px;
+	}
+	
+	.frankie-img {
+		margin-right: 50px;
+		right: -220px;
+	}*/ }
