@@ -1,3 +1,11 @@
+
+@font-face {
+    font-family: 'Ikaros', sans-serif;
+    src: url('../../fonts/Ikaros-Regular.otf');
+    src: url('../../fonts/Ikaros-Regular.otf') format('embedded-opentype');
+}
+
+
 * {
     margin: 0;
     padding: 0;

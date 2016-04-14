@@ -8,8 +8,10 @@ $(document).ready(function() {
   var questionDiv = $('.question')
   var choicesDiv = $('.choices')
 
-  var questionNumber = 1;
+  var questionNumber = $('#question-number')
+  var questionCount = 1;
   var circles = $('.circles')
+
 
   var nextDiv = $('.next')
 
@@ -38,20 +40,33 @@ $(document).ready(function() {
 	  }]
 
 
-
-
 // when user clicks start button, the intro hides, quiz displays, question get generated
 $('.start-btn').click(function() {
 	console.log("*start quiz*")
+	questionIndex = 0;
+	// once start button is clicked, the main introduction is hidden to
 	$('.main-intro').hide()
+	// display the quiz contents
 	beginQuiz.show()
+
+		// displays question number
+		feedbackHeader.show()
+
+		//appending question number
+		feedbackHeader.append('Question <span id="question-number">'+ questionCount +':</span')
+
+		
+		// shows question number 
+		questionDiv.show()
+
+	// first question is generated 
 	generateQuestion()
 })
 
 	var questionIndex = 0;
 function generateQuestion() {
 	console.log("question generated")
-	questionNumber == 1;
+	questionCount == 1;
 	questionDiv.append(q[questionIndex].question)
 	characterButtons(q[questionIndex].correctAnswer)
 	questionIndex++;
@@ -86,7 +101,6 @@ function answerTrue() {
 	seeResults()
 }
 
-
 // when user answers incorrectly
 function answerFalse() {
 	feedbackHeader.text("Sorry.")
@@ -100,9 +114,9 @@ function answerFalse() {
 
 function next() {
 	console.log("next button clicked")
-	questionNumber++;
+	questionCount++;
 	feedbackHeader.empty()
-	feedbackHeader.append('Question <span id="question-number">'+ questionNumber +':</span')
+	feedbackHeader.append('Question <span id="question-number">'+ questionCount +':</span')
 	questionDiv.text("")
 	choicesDiv.empty()
 	nextDiv.empty()
@@ -112,25 +126,26 @@ function next() {
 }
 
 function indicators() {
-	if (questionNumber == 1) {
+	// adds or removes the active class from the circles
+	if (questionCount == 1) {
 		$('#indicator-1').addClass('active')
 	}
-	else if (questionNumber == 2 ) {
+	else if (questionCount == 2 ) {
 		$('#indicator-1').removeClass('active')
 		$('#indicator-2').addClass('active')
 	}
-	else if (questionNumber == 3 ) {
+	else if (questionCount == 3 ) {
 		$('#indicator-1').removeClass('active')
 		$('#indicator-2').removeClass('active')
 		$('#indicator-3').addClass('active')
 	}
-	else if (questionNumber == 4 ) {
+	else if (questionCount == 4 ) {
 		$('#indicator-1').removeClass('active')
 		$('#indicator-2').removeClass('active')
 		$('#indicator-3').removeClass('active')
 		$('#indicator-4').addClass('active')
 	}
-	else if (questionNumber == 5) {
+	else if (questionCount == 5) {
 		$('#indicator-1').removeClass('active')
 		$('#indicator-2').removeClass('active')
 		$('#indicator-3').removeClass('active')
@@ -140,8 +155,10 @@ function indicators() {
 }	
 
 function seeResults() {
-	if (questionNumber == 5) {
+	if (questionCount == 5) {
+		// removes Next button
 		nextDiv.empty()
+		// appends the See Result button
 		nextDiv.append('<button id="results-btn" class="button">See Results</button>')
 		total()
  	}
@@ -163,7 +180,7 @@ function total() {
 		nextDiv.empty()
 		// displays the Start Over button
 		nextDiv.append('<button class="reset button">Start Over</button>')
-
+		// reset function to reset quiz
 		reset()
 		
 	})
@@ -172,15 +189,25 @@ function total() {
 function reset() {
 		$('.reset').click(function() {
 			console.log("reset")
+		
 			//clears feedback Header (Ouch!)
 			feedbackHeader.empty()
+		
+
 			// clears feedback displaying # of correct
 			questionDiv.empty()
+			
 			// removes Start Over button
 			nextDiv.empty()
+
+			
 			// clears indicators from circles
 			circles.empty()
+
+			// displays the main introduction to start quiz
 			$('.main-intro').show()
+
+			// hides the quiz
 			beginQuiz.hide()
 		})
 	}
