@@ -43,18 +43,19 @@ $(document).ready(function() {
 // when user clicks start button, the intro hides, quiz displays, question get generated
 $('.start-btn').click(function() {
 	console.log("*start quiz*")
-	questionIndex = 0;
+
 	// once start button is clicked, the main introduction is hidden to
 	$('.main-intro').hide()
 	// display the quiz contents
 	beginQuiz.show()
-
+	questionCount = 1;
 		// displays question number
 		feedbackHeader.show()
 
 		//appending question number
 		feedbackHeader.append('Question <span id="question-number">'+ questionCount +':</span')
 
+		choicesDiv.show()
 		
 		// shows question number 
 		questionDiv.show()
@@ -66,7 +67,6 @@ $('.start-btn').click(function() {
 	var questionIndex = 0;
 function generateQuestion() {
 	console.log("question generated")
-	questionCount == 1;
 	questionDiv.append(q[questionIndex].question)
 	characterButtons(q[questionIndex].correctAnswer)
 	questionIndex++;
@@ -199,6 +199,11 @@ function reset() {
 			
 			// removes Start Over button
 			nextDiv.empty()
+
+			choicesDiv.empty()
+			questionIndex = 0
+			questionCount = 0
+			correctAnswers = 0
 
 			
 			// clears indicators from circles
