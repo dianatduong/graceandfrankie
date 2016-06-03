@@ -108,7 +108,8 @@ img {
     border-radius: 50px;
     -moz-border-radius: 50px;
     -webkit-border-radius: 50px; }
-  .choices .button,
+  .choices,
+  .button,
   #next-btn,
   #results-btn {
     background-color: #6a898c;
