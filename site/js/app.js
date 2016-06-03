@@ -219,8 +219,3 @@ function reset() {
 
 })
 
-
-	
-
-
-	

@@ -47,11 +47,11 @@ gulp.task('html', function() {
 // JavaScript build task, removes whitespace and concatenates all files
 gulp.task('scripts', function() {
 //new task created called scripts
-  return browserify('site/js/app.js')
+  return browserify('site/js/mvc.js')
   // runs browserify on js files 
     .bundle()
     //concatenates files in correct order
-    .pipe(source('app.js'))
+    .pipe(source('mvc.js'))
     //all code in js file will end up in a single file called app.js
     .pipe(buffer())
     .pipe(uglify())
@@ -65,7 +65,7 @@ gulp.task('styles', function() {
 //new task created called styles
   return gulp.src('site/css/*.css')
   //.src method loads all of the CSS files 
-    .pipe(concat('styles.css'))
+    .pipe(concat('main.css'))
     //the files are piped into the concat plugin which combines them all into a single file called styles.css
     .pipe(gulp.dest('build/css'));
     //style.css is then piped into gulp.dest, which creates the build/css directory and places the file there
